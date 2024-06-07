@@ -34,5 +34,10 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'trello' => [
+        'client_api' => env('TRELLO_CLIENT_API'),
+        'client_secret' => env('TRELLO_CLIENT_SECRET'),
+        'redirect' => env('TRELLO_REDIRECT_URI'),
+    ],
 
 ];

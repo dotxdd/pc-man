@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'cu_key',
+        'tr_key'
     ];
 
     /**
