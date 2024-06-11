@@ -34,7 +34,7 @@ class TrelloController extends Controller
                 $user->save();
 
                 // Return the token in a JSON response
-                return response()->json(['token' => $token]);
+                return redirect('/connect-trello');
             } else {
                 // Return an error response if no user is authenticated
                 return response()->json(['error' => 'User not authenticated'], 401);
@@ -100,6 +100,25 @@ class TrelloController extends Controller
         } else {
             // Return an error response if no user is authenticated or no token is stored
             return response()->json(['error' => 'User not authenticated or no token stored'], 401);
+        }
+    }
+
+    public function deleteTrelloConnection()
+    {
+        // Get the currently authenticated user
+        $user = Auth::user();
+
+        // Check if user is authenticated
+        if ($user) {
+            // Remove the token from the user's tr_key attribute
+            $user->tr_key = null;
+            $user->save();
+
+            // Return a success response
+            return redirect('/connect-trello');
+        } else {
+            // Return an error response if no user is authenticated
+            return response()->json(['error' => 'User not authenticated'], 401);
         }
     }
 }

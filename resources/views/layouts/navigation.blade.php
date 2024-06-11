@@ -16,6 +16,16 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('trello.connection')" :active="request()->routeIs('trello.connection')">
+                        {{ __('Trello Connect') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('clickup.connection')" :active="request()->routeIs('clickup.connection')">
+                        {{ __('Clickup Connect') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -84,9 +94,7 @@
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :href="url('connect-trello')">
-                    {{ __('Connect Trello') }}
-                </x-responsive-nav-link>
+
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
